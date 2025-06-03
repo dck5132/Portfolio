@@ -64,7 +64,7 @@ ng build --configuration production
 
 This portfolio showcases my work at:
 
-- **Experian**: Senior Software Engineer
+- **Experian**: Software Engineer
 - **Amsted Digital**: Web Developer
 - **Knowledgent**: Web Developer
 - **Everglades Technologies**: Freelance Developer
