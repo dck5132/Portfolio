@@ -13,7 +13,7 @@ A modern, responsive portfolio website built with Angular 19 showcasing my exper
 ## Technical Stack
 
 - **Framework**: Angular 19
-- **UI Components**: Angular Material
+- **UI Components**: Angular Material, NGXUI Typewriter, Swiper.js Swiper
 - **Styling**: SCSS with CSS custom properties
 - **Icons**: Font Awesome
 - **Animation**: Custom animations and Typewriter effect
@@ -26,7 +26,7 @@ A modern, responsive portfolio website built with Angular 19 showcasing my exper
 - **Skills**: Interactive skill progress visualization
 - **Resume**: Detailed professional experience timeline
 - **Projects**: Filterable project showcase with detailed modals
-- **Testimonials**: Client and colleague recommendations
+- **Testimonials**: Colleague recommendations
 
 ## Local Development
 
