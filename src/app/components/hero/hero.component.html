@@ -1,0 +1,26 @@
+<section
+  id="hero"
+  class="hero section dark-background"
+  aria-label="Hero section"
+>
+
+  <img 
+    [src]="BACKGROUND_IMAGE.src"
+    [alt]="BACKGROUND_IMAGE.alt"
+    data-testid="hero-background-photo"
+    priority
+  />
+
+  <div class="container">
+    <h2 data-testid="hero-name">{{NAME}}</h2>
+    <p>
+      <span data-testid="hero-role-prefix">{{ROLE_PREFIX}}</span>
+      <om-typewriter
+        [words]="ROLES"
+        styleClass="typewriter"
+        aria-live="polite"
+      />
+    </p>
+  </div>
+
+</section>

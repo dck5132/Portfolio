@@ -1,0 +1,79 @@
+@if (showMobileMenuToggle()) {
+  <button
+    mat-mini-fab
+    type="button"
+    [disabled]="isMenuToggleDisabled()"
+    class="menu-toggle"
+    (click)="toggleMobileMenu()"
+    aria-label="Toggle navigation menu"
+    data-testid="menu-toggle"
+  >
+    <fa-icon class="fa-fw" [icon]="mobileMenuToggleIcon()"/>
+  </button>
+
+}
+<header
+  id="header"
+  class="header dark-background d-flex flex-column"
+  [class.d-none]="!isMenuDisplayed()"
+>
+
+  <img
+    [ngSrc]="AVATAR_IMAGE.src"
+    [alt]="AVATAR_IMAGE.alt"
+    width="120"
+    height="120"
+    class="profile-img img-fluid rounded-circle"
+    data-testid="header-photo"
+    priority
+  >
+
+  <a
+    routerLink=""
+    (click)="triggerScroll(INTERNAL_PATH.HERO)"
+    class="logo d-flex align-items-center justify-content-center"
+  >
+    <h1 data-testid="header-name-link" class="sitename">{{NAME}}</h1>
+  </a>
+
+  <div class="social-links text-center">
+    @for (route of EXTERNAL_ROUTES; track route.id) {
+      <a
+        [href]="route.path"
+        target="_blank"
+        rel="noreferrer"
+        [attr.aria-labelledby]="route.id"
+      >
+      @if (route.icon) {
+        <fa-icon
+          [icon]="route.icon"
+        />
+      }
+      </a>
+    }
+  </div>
+
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      @for (route of INTERNAL_ROUTES; track route.id; let index = $index) {
+        @let displayedLabel = route.label || route.id;
+        <li>
+          <a
+            tabindex="0"
+            [class.active]="checkIfSectionIsActive(route.path)"
+            routerLink="[]"
+            [fragment]="route.path"
+          >
+            @if (route.icon) {
+              <fa-icon
+                class="navicon fa-fw"
+                [icon]="route.icon"
+              />
+            }
+            {{displayedLabel | titlecase}}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

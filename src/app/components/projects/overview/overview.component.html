@@ -1,0 +1,43 @@
+<mat-card class="overview-card" appearance="outlined">
+    <mat-card-header class="mb-2">
+            <img
+                mat-card-avatar
+                [ngSrc]="displayedOverview().avatar.src"
+                [alt]="displayedOverview().avatar.alt"
+                width="40"
+                height="40"
+            >
+        <mat-card-title class="overview-card-title">{{displayedOverview().project}}</mat-card-title>
+        <mat-card-subtitle>{{displayedOverview().subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    @if(displayedOverview().projectImage) {
+        <img
+            mat-card-md-image
+            class="overview-card-logo"
+            [src]="displayedOverview().projectImage?.src"
+            [alt]="displayedOverview().projectImage?.alt"
+        >
+    }
+    <mat-card-content class="mt-2">
+        <p>{{displayedOverview().description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+            mat-button
+            (click)="openDetailModal()"
+        >
+            {{displayedOverview().openButtonLabel}}
+        </button>
+        @if (displayedOverview().link) {
+            <a
+                mat-button
+                target="_blank"
+                [href]="displayedOverview().link?.path"
+                rel="noreferrer"
+                [attr.aria-labelledby]="displayedOverview().link?.id"
+            >
+                {{displayedOverview().link?.label}}
+            </a>
+        }
+    </mat-card-actions>
+</mat-card>

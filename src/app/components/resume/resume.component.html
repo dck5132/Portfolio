@@ -1,0 +1,46 @@
+
+<section
+    id="resume"
+    class="resume section"
+>
+
+    <portfolio-section-title [config]="RESUME_TITLE_CONFIG"/>
+
+    <div class="container">
+
+        <div class="row">
+            @for (section of displayedResumeContent(); track section) {
+                <div class="col-lg-6 mt-3">
+                    @for (part of section; track part.location) {
+                        @if (part.title) {
+                            <h3 class="resume-title">{{part.title}}</h3>
+                        }
+                        <div
+                            class="resume-item pb-0"
+                        >
+                            <h4>{{part.name}}</h4>
+                            @if (part.timePeriod) {
+                                <h5>{{part.timePeriod}}</h5>
+                            }
+                            @if (part.location) {
+                                <p data-testid="resume-location"><em>{{part.location | titlecase}}</em></p>
+                            }
+                            @if (part.description) {
+                                <p data-testid="resume-description"><em>{{part.description}}</em></p>
+                            }
+                            @if (part.details) {
+                                <ul>
+                                    @for (detail of part.details; track detail; let index = $index) {
+                                        <li [attr.data-testid]="'resume-detail-' + index">{{detail}}</li>   
+                                    }
+                                </ul>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    </div>
+
+</section>

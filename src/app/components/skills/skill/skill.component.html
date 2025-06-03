@@ -1,0 +1,16 @@
+@let skillExperienceInYears = label();
+<span class="skill">{{skillExperienceInYears}}</span>
+<div
+    class="progress"
+    role="progressbar"
+    [attr.aria-label]="ariaLabel()"
+    [attr.aria-valuenow]="ariaValueNow()"
+    aria-valuemin="0"
+    aria-valuemax="100"
+>
+    <div
+        class="progress-bar"
+        [style]="config().percent"
+    >
+    </div>
+</div>

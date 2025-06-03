@@ -1,0 +1,40 @@
+<section
+  id="projects"
+  class="projects section light-background"
+  aria-label="Projects section"
+  >
+
+  <portfolio-section-title [config]="PROJECTS_TITLE_CONFIG"/>
+
+  <div class="container no-x-overflow">
+
+    <mat-tab-group
+      class="mat-project-tab"
+      mat-stretch-tabs="false"
+      mat-align-tabs="center"
+      fitInkBarToContent
+      (selectedTabChange)="changeTab($event)"
+    >
+    @for (filterItem of PROJECT_FILTERS; track filterItem; let index = $index) {
+      @let displayedFilterItem = filterItem | titlecase;
+      <mat-tab
+        [attr.data-testid]="'project-tab-' + index"
+        class="mat-project-tab-item"
+        [label]="displayedFilterItem"
+      >
+        <ng-content matTabContent>
+          <div class="row gy-4">
+            @for (overviewItem of filteredOverviewList(); track overviewItem.project) {
+              <div class="col-lg-4 col-md-6">
+                <portfolio-overview [config]="overviewItem"/>
+              </div>
+            }
+          </div>
+        </ng-content>
+      </mat-tab>
+    }
+    </mat-tab-group>
+
+  </div>
+
+</section>
