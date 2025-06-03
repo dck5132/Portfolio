@@ -1,59 +1,81 @@
-# Portfolio
+# Professional Portfolio - Cyril Kalikin
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+A modern, responsive portfolio website built with Angular 19 showcasing my experience as a Senior Software Engineer and Web Developer. The site demonstrates my expertise in front-end development, accessibility, and modern web technologies.
 
-## Development server
+## Key Features
 
-To start a local development server, run:
+- **Responsive Design**: Fully responsive layout adapting seamlessly across all devices
+- **Modern Architecture**: Built with Angular 19 using signals and computed values
+- **Accessibility**: WCAG compliant with proper ARIA attributes and semantic HTML
+- **Performance**: Optimized loading with lazy modules and image optimization
+- **Testing**: Comprehensive unit tests using Angular Material test harnesses
+
+## Technical Stack
+
+- **Framework**: Angular 19
+- **UI Components**: Angular Material
+- **Styling**: SCSS with CSS custom properties
+- **Icons**: Font Awesome
+- **Animation**: Custom animations and Typewriter effect
+- **Testing**: Jasmine/Karma with Material test harnesses
+
+## Project Sections
+
+- **Hero**: Dynamic introduction with typewriter animation
+- **About**: Professional summary and key information
+- **Skills**: Interactive skill progress visualization
+- **Resume**: Detailed professional experience timeline
+- **Projects**: Filterable project showcase with detailed modals
+- **Testimonials**: Client and colleague recommendations
+
+## Local Development
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+1. Start development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. Open browser at `http://localhost:4200`
 
-## Code scaffolding
+## Testing
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Run unit tests with coverage reporting:
 
 ```bash
-ng generate --help
+ng test --code-coverage
 ```
 
-## Building
+## Building for Production
 
-To build the project run:
+Create an optimized production build:
 
 ```bash
-ng build
+ng build --configuration production
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Professional Experience
 
-## Running unit tests
+This portfolio showcases my work at:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Experian**: Senior Software Engineer
+- **Amsted Digital**: Web Developer
+- **Knowledgent**: Web Developer
+- **Everglades Technologies**: Freelance Developer
 
-```bash
-ng test
-```
+## Contact
 
-## Running end-to-end tests
+For job opportunities or collaborations, you can reach me through:
 
-For end-to-end (e2e) testing, run:
+- [LinkedIn Profile](https://www.linkedin.com/in/cyril-kalikin/)
+- Email: [dck5132@gmail.com]
 
-```bash
-ng e2e
-```
+## License
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Template designed by [BootstrapMade](https://bootstrapmade.com/), customized and enhanced with Angular 19 features.
