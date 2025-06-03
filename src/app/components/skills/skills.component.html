@@ -1,0 +1,31 @@
+<section
+    id="skills"
+    class="skills section light-background"
+    aria-label="Skills section"
+>
+
+    <portfolio-section-title [config]="SKILL_TITLE_CONFIG"/>
+
+    <div class="container">
+
+        <div class="row skills-content">
+            @if (isMobile()) {
+                @for (skill of orderedSkills(); track skill.name) {
+                    <div class="col-lg-6">
+                        <portfolio-skill [config]="skill"/>
+                    </div>
+                }
+            }
+            @else {
+                @for (skillSection of orderedSkillsSplit(); track skillSection) {
+                    <div class="col-lg-6">
+                        @for (skill of skillSection; track skill.name) {
+                            <portfolio-skill [config]="skill"/>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+ 

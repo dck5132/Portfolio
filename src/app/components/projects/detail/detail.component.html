@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{displayedProject().position}}</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-chip-set aria-label="Primary technologies">
+    @for(technology of displayedProject().technologies; track technology) {
+      <mat-chip>
+        {{technology}}
+      </mat-chip>
+    }
+  </mat-chip-set>
+    @for (detail of displayedProject().details; track detail.heading) {
+      <h3>{{detail.heading}}</h3>
+      <p>{{detail.description}}</p>
+      @if (detail.bulletPoints) {
+        <ul>
+          @for (point of detail.bulletPoints; track point; let index = $index) {
+            <li [attr.data-testid]="'detail-bullet-point-' + index">{{point}}</li>
+          }
+        </ul>
+      }
+    }
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{CLOSE}}</button>
+</mat-dialog-actions>

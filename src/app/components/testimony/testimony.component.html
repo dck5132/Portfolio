@@ -1,0 +1,53 @@
+<section
+  id="testimonials"
+  class="testimonials section light-background"
+  aria-label="Testimonial Section"
+>
+
+  <portfolio-section-title [config]="TESTIMONY_TITLE_CONFIG"/>
+
+  <div class="container">
+    <swiper-container
+      #swiper
+      speed="600"
+      space-between="50"
+      pagination="true"
+      auto-height="true"
+      grab-cursor="true"
+      aria-label="Testimonial carousel"
+    >
+      @for(testimonial of RECOMMENDATIONS; track testimonial.author) {
+        <swiper-slide>
+          <article class="testimonial-content">
+            <div class="quote-container">
+              <fa-icon
+                [icon]="leftQuote"
+                class="quote-icon left"
+                aria-hidden="true"
+              />
+              @for(section of testimonial.testimony; track section) {
+                @if (hasListItems(section)) {
+                  <ul class="testimony-list">
+                    <li>{{formatListItem(section)}}</li>
+                  </ul>
+                } @else {
+                  <p>{{section}}</p>
+                }
+              }
+              <fa-icon
+                [icon]="rightQuote"
+                class="quote-icon right"
+                aria-hidden="true"
+              />
+            </div>
+          </article>
+          <footer class="testimonial-author text-center">
+              <h3>{{testimonial.author}}</h3>
+              <h4>{{testimonial.position}}</h4>
+              <p>{{testimonial.company | titlecase}}</p>
+          </footer>
+        </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+</section>
