@@ -67,7 +67,7 @@ This portfolio showcases my work at:
 - **Experian**: Software Engineer
 - **Amsted Digital**: Web Developer
 - **Knowledgent**: Web Developer
-- **Everglades Technologies**: Freelance Developer
+- **Everglades Technologies**: Freelance Developer/Internship
 
 ## Contact
 
