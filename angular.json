@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "portfolio",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -33,9 +33,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme/theme.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/swiper/swiper-bundle.min.css"
+              "src/theme/theme.scss"
             ],
             "scripts": []
           },
@@ -44,8 +42,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1500kB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -95,9 +93,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme/theme.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/swiper/swiper-bundle.min.css"
+              "src/theme/theme.scss"
             ],
             "scripts": []
           }
@@ -112,7 +108,14 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "dir": "dist/portfolio/browser",
+            "repo": "https://github.com/dck5132/Portfolio.git",
+            "baseHref": "/Portfolio/",
+            "name": "Cyril Kalikin",
+            "email": "dck5132@gmail.com"
+          }
         }
       }
     }

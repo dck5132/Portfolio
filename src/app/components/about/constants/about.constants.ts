@@ -1,5 +1,6 @@
 // Interfaces
 import { AboutInformation } from "../interfaces/about.interfaces";
+
 // Constants and Enums
 import {
     Degree,
