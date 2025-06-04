@@ -72,6 +72,10 @@
       width: 40px;
       height: 40px;
       transition: 0.3s;
+
+      &:hover {
+        color: var(--accent-color);
+      }
     }
   }
 }
