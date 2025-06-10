@@ -36,7 +36,6 @@ export class OverviewComponent {
   // Displayed State
   displayedOverview = computed(() => Object.assign(this.config(), {project: this.titleCasePipe.transform(this.config().project)}));
 
-
   openDetailModal(): void {
     this.dialog.open(DetailComponent, {
       data: {

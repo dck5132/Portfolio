@@ -1,5 +1,6 @@
-import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { NgOptimizedImage, TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 // External Libraries
@@ -15,6 +16,7 @@ import {
 import { Name } from '../../shared/constants/information.constants';
 import { ImagePathAndAltTextToImageConfig } from '../../shared/constants/image.constants';
 import { InternalPaths } from '../../shared/constants/routing.enums';
+
 // Services
 import { DeviceDetectorService } from '../../services/device-detector.service';
 import { ScrollService } from '../../services/scroll.service';

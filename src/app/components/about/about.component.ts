@@ -1,12 +1,16 @@
 import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+
 // External Libraries
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 // Components
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
+
 // Interfaces
 import { sectionTitleConfig } from '../../shared/components/section-title/interfaces/section-title.interfaces';
+
 // Constants and Enums
 import { AboutDetails } from './constants/about.constants';
 import { ImagePathAndAltTextToImageConfig } from '../../shared/constants/image.constants';
