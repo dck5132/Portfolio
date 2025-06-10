@@ -7,6 +7,7 @@ $angular-material-theming-css-vars-theme: mat.define-theme(
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
       use-system-variables: true,
+    system-variables-prefix: sys,
     ),
     typography: (
       plain-family: var(--default-font),
@@ -15,6 +16,7 @@ $angular-material-theming-css-vars-theme: mat.define-theme(
       medium-weight: 500,
       regular-weight: 300,
       use-system-variables: true,
+    system-variables-prefix: sys,
     ),
     density: (
       scale: 0,
