@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 // External Libraries
 import { NgxTypewriterComponent } from '@omnedia/ngx-typewriter';
+
 // Constants and Enums
 import { Name } from '../../shared/constants/information.constants';
 import { ImagePathAndAltTextToImageConfig } from '../../shared/constants/image.constants';

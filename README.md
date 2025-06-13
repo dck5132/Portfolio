@@ -1,18 +1,18 @@
-# Professional Portfolio - Cyril Kalikin
+# [Professional Portfolio - Cyril Kalikin](https://dck5132.github.io/Portfolio/)
 
-A modern, responsive portfolio website built with Angular 19 showcasing my experience as a Senior Software Engineer and Web Developer. The site demonstrates my expertise in front-end development, accessibility, and modern web technologies.
+A modern, responsive portfolio website built with Angular 20 showcasing my experience as a Senior Software Engineer and Web Developer. The site demonstrates my expertise in front-end development, accessibility, and modern web technologies.
 
 ## Key Features
 
 - **Responsive Design**: Fully responsive layout adapting seamlessly across all devices
-- **Modern Architecture**: Built with Angular 19 using signals and computed values
+- **Modern Architecture**: Built with Angular 20 using signals and computed values
 - **Accessibility**: WCAG compliant with proper ARIA attributes and semantic HTML
 - **Performance**: Optimized loading with lazy modules and image optimization
 - **Testing**: Comprehensive unit tests using Angular Material test harnesses
 
 ## Technical Stack
 
-- **Framework**: Angular 19
+- **Framework**: Angular 20
 - **UI Components**: Angular Material, NGXUI Typewriter, Swiper.js Swiper
 - **Styling**: SCSS with CSS custom properties
 - **Icons**: Font Awesome
@@ -78,4 +78,4 @@ For job opportunities or collaborations, you can reach me through:
 
 ## License
 
-Template designed by [BootstrapMade](https://bootstrapmade.com/), customized and enhanced with Angular 19 features.
+Template designed by [BootstrapMade](https://bootstrapmade.com/), customized and enhanced with Angular 20 features.
