@@ -14,7 +14,7 @@ export const CurrentSkills: SkillsAndExperience[] = [
         proficiency: 8
     },
     {
-        name: 'Angular & CLI (v19)',
+        name: 'Angular & CLI (v20)',
         proficiency: 8
     },
     {
