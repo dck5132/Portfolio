@@ -13,7 +13,7 @@ A modern, responsive portfolio website built with Angular 20 showcasing my exper
 ## Technical Stack
 
 - **Framework**: Angular 20
-- **UI Components**: Angular Material, NGXUI Typewriter, Swiper.js Swiper
+- **UI Components**: Angular Material, Bootstrap, NGXUI Typewriter, Swiper.js Swiper
 - **Styling**: SCSS with CSS custom properties
 - **Icons**: Font Awesome
 - **Animation**: Custom animations and Typewriter effect
