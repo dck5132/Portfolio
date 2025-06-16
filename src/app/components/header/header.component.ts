@@ -36,8 +36,8 @@ import { ScrollService } from '../../services/scroll.service';
 })
 export class HeaderComponent {
   // Dependencies 
-  private deviceDetectorService = inject(DeviceDetectorService);
-  private scrollService = inject(ScrollService);
+  #deviceDetectorService = inject(DeviceDetectorService);
+  #scrollService = inject(ScrollService);
   // Display Constants
   protected readonly EXTERNAL_ROUTES = ExternalRoutes;
   protected readonly INTERNAL_ROUTES = InternalRoutes;
@@ -52,20 +52,24 @@ export class HeaderComponent {
   // Menu State
   protected isMenuToggleDisabled = signal(false);
   protected isMenuToggledOpen = signal(false);
-  protected isMenuDisplayed = computed(() => this.isMenuToggledOpen() || !this.deviceDetectorService.isMobileOrTablet());
+  protected isMenuDisplayed = computed(() => this.isMenuToggledOpen() || !this.#deviceDetectorService.isMobileOrTablet());
   // Mobile Specific Display/Icon
-  protected showMobileMenuToggle = computed(() => this.deviceDetectorService.isMobileOrTablet());
+  protected showMobileMenuToggle = computed(() => this.#deviceDetectorService.isMobileOrTablet());
   protected mobileMenuToggleIcon = computed(() => this.isMenuToggledOpen() ? this.MENU_ICONS.CLOSE : this.MENU_ICONS.SHOW);
 
   protected triggerScroll(sectionId: InternalPaths): void {
-    this.scrollService.scrollToSection(sectionId);
-    if (this.deviceDetectorService.isMobileOrTablet()) {
+    this.#scrollService.scrollToSection(sectionId);
+    this.closeMobileMenuAfterNavigation();
+  }
+
+  protected closeMobileMenuAfterNavigation(): void {
+    if (this.#deviceDetectorService.isMobileOrTablet()) {
       this.isMenuToggledOpen.set(false);
     }
   }
 
   protected checkIfSectionIsActive(sectionId: string): boolean {
-    return this.scrollService.activeSection() === sectionId;
+    return this.#scrollService.activeSection() === sectionId;
   }
 
   protected toggleMobileMenu(): void {

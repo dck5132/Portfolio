@@ -62,6 +62,7 @@
               [class.active]="checkIfSectionIsActive(route.path)"
               routerLink="[]"
               [fragment]="route.path"
+              (click)="closeMobileMenuAfterNavigation()"
             >
               @if (route.icon) {
                 <fa-icon

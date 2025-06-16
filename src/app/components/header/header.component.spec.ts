@@ -1,13 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+// External Libraries
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
+
+// Components
 import { HeaderComponent } from './header.component';
+
+// Services
 import { DeviceDetectorService } from '../../services/device-detector.service';
 import { ScrollService } from '../../services/scroll.service';
+
+// Constants and Enums
 import { InternalPaths } from '../../shared/constants/routing.enums';
 import { Name } from '../../shared/constants/information.constants';
-import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
-import { ActivatedRoute } from '@angular/router';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -116,10 +124,13 @@ describe('HeaderComponent', () => {
       component['triggerScroll'](InternalPaths.ABOUT);
       fixture.detectChanges();
 
+      const navigationMenu = fixture.debugElement.query(By.css('#header'));
+
       expect(component['isMenuToggledOpen']()).toBeFalse();
+      expect(navigationMenu).toBeNull();
     });
 
-    it('should highlight active section', () => {
+    it('should highlight the active section only', () => {
       const activeSection = InternalPaths.ABOUT;
       scrollService.activeSection.set(activeSection);
       fixture.detectChanges();
