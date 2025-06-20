@@ -93,6 +93,18 @@ describe('FooterComponent', () => {
       expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
     });
 
+    it('should scroll to hero section when arrow button is focused to and enter key is hit', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
+      deviceDetectorService.isMobileOrTablet.set(true);
+      isAtTop$.next(false);
+
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      await scrollUpButton.focus();
+      (await scrollUpButton.host()).dispatchEvent('keydown', {key: 'enter'});
+
+      expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
+    });
+
     it('should disable arrow button interaction while scrolling', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
