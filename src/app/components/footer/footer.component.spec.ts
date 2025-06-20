@@ -53,8 +53,8 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Scroll Up Arrow Display', () => {
-    it('should hide arrow on desktop', async () => {
+  describe('Scroll Up Arrow Button Display', () => {
+    it('should hide arrow button on desktop', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(false);
 
@@ -62,7 +62,7 @@ describe('FooterComponent', () => {
       expect(scrollUpButton).toBeNull();
     });
 
-    it('should show arrow on mobile when not at top', async () => {
+    it('should show arrow button on mobile when not at top', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -71,7 +71,7 @@ describe('FooterComponent', () => {
       expect(scrollUpButton).toBeTruthy();
     });
 
-    it('should hide arrow on mobile when at top', async () => {
+    it('should hide arrow button on mobile when at top', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(true);
@@ -81,8 +81,8 @@ describe('FooterComponent', () => {
     });
   });
 
-  describe('Scroll To Top Functionality', () => {
-    it('should scroll to hero section when arrow clicked', async () => {
+  describe('Scroll Up Arrow Button Functionality', () => {
+    it('should scroll to hero section when arrow button clicked', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -93,7 +93,7 @@ describe('FooterComponent', () => {
       expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
     });
 
-    it('should disable button interaction while scrolling', async () => {
+    it('should disable arrow button interaction while scrolling', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -104,7 +104,7 @@ describe('FooterComponent', () => {
       expect(await scrollUpButton.isDisabled()).toBeTrue();
     });
 
-    it('should enable arrow when scroll completes and the user scrolls away from the top', async () => {
+    it('should enable arrow button when scroll completes and the user scrolls down', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -118,8 +118,8 @@ describe('FooterComponent', () => {
     });
   });
 
-  describe('Accessibility', () => {
-    it('should have proper aria-label on scroll button', async () => {
+  describe('Scroll Up Arrow Button Accessibility', () => {
+    it('should have proper aria-label', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -129,6 +129,17 @@ describe('FooterComponent', () => {
       const scrollUpButtonAriaLabel = await scrollUpButtonHost.getAttribute('aria-label');
 
       expect(scrollUpButtonAriaLabel).toBe('Scroll to top');
+    });
+
+    it('should be focusable via keyboard', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
+      deviceDetectorService.isMobileOrTablet.set(true);
+      isAtTop$.next(false);
+
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      await scrollUpButton.focus();
+
+      expect(await scrollUpButton.isFocused()).toBeTrue();
     });
   });
 });
