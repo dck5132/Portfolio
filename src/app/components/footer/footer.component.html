@@ -15,20 +15,21 @@
         Designed by <a href="https://bootstrapmade.com/" rel="noreferrer">BootstrapMade</a> Distributed by <a href="https://themewagon.com" rel="noreferrer">ThemeWagon</a>
       </div>
     </div>
+
+  <!-- Scroll Top -->
+  @if (this.isScrollUpArrowDisplayed()) {
+    <a
+      mat-mini-fab
+      tabIndex="0"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      routerLink=""
+      (click)="scrollToTop()"
+      (keydown)="scrollToTop()"
+      [disabled]="isScrollUpArrowDisabled()"
+      aria-label="Scroll to top"
+    >
+      <fa-icon [icon]="SCROLL_TOP_ICON"/>
+    </a>
+  }
 </footer>
-
-<!-- Scroll Top -->
-@if (this.isScrollUpArrowDisplayed()) {
-  <a
-    mat-mini-fab
-    id="scroll-top"
-    class="scroll-top d-flex align-items-center justify-content-center"
-    routerLink=""
-    (click)="scrollToTop()"
-    [disabled]="isScrollUpArrowDisabled()"
-    aria-label="Scroll to top"
-  >
-    <fa-icon [icon]="SCROLL_TOP_ICON"/>
-  </a>
-}
-

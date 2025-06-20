@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { signal } from '@angular/core';
 
-// Third Party Libraries
+// External Libraries
 import { BehaviorSubject } from 'rxjs';
+import { HarnessLoader } from '@angular/cdk/testing';
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
+import { MatButtonHarness } from '@angular/material/button/testing';
 
 // Components
 import { FooterComponent } from './footer.component';
@@ -15,10 +17,10 @@ import { ScrollService } from '../../services/scroll.service';
 // Constants and Enums
 import { InternalPaths } from '../../shared/constants/routing.enums';
 
-
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
+  let loader: HarnessLoader;
   let deviceDetectorService: jasmine.SpyObj<DeviceDetectorService>;
   let scrollService: jasmine.SpyObj<ScrollService>;
   let isAtTop$: BehaviorSubject<boolean>;
@@ -52,93 +54,81 @@ describe('FooterComponent', () => {
   });
 
   describe('Scroll Up Arrow Display', () => {
-    it('should hide arrow on desktop', () => {
+    it('should hide arrow on desktop', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      expect(arrow).toBeFalsy();
+      const scrollUpButton = await loader.getHarnessOrNull(MatButtonHarness.with({ selector: '#scroll-top' }));
+      expect(scrollUpButton).toBeNull();
     });
 
-    it('should show arrow on mobile when not at top', () => {
+    it('should show arrow on mobile when not at top', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      expect(arrow).toBeTruthy();
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      expect(scrollUpButton).toBeTruthy();
     });
 
-    it('should hide arrow on mobile when at top', () => {
+    it('should hide arrow on mobile when at top', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(true);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      expect(arrow).toBeFalsy();
+      const scrollUpButton = await loader.getHarnessOrNull(MatButtonHarness.with({ selector: '#scroll-top' }));
+      expect(scrollUpButton).toBeNull();
     });
   });
 
   describe('Scroll To Top Functionality', () => {
-    it('should scroll to hero section when arrow clicked', () => {
+    it('should scroll to hero section when arrow clicked', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      arrow.triggerEventHandler('click');
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      await scrollUpButton.click();
 
       expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
     });
 
-    it('should disable arrow immediately after click', () => {
+    it('should disable button interaction while scrolling', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      arrow.triggerEventHandler('click');
-      fixture.detectChanges();
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      await scrollUpButton.click();
 
-      expect(component['isScrollUpArrowDisabled']()).toBeTrue();
+      expect(await scrollUpButton.isDisabled()).toBeTrue();
     });
 
-    it('should enable arrow when scroll completes', () => {
+    it('should enable arrow when scroll completes and the user scrolls away from the top', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      arrow.triggerEventHandler('click');
-      fixture.detectChanges();
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      await scrollUpButton.click();
 
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      expect(component['isScrollUpArrowDisabled']()).toBeFalse();
+      expect(await scrollUpButton.isDisabled()).toBeFalse();
     });
   });
 
   describe('Accessibility', () => {
-    it('should have proper aria-label on scroll button', () => {
+    it('should have proper aria-label on scroll button', async () => {
+      loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
-      fixture.detectChanges();
 
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      expect(arrow.attributes['aria-label']).toBe('Scroll to top');
-    });
+      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+      const scrollUpButtonHost = await scrollUpButton.host();
+      const scrollUpButtonAriaLabel = await scrollUpButtonHost.getAttribute('aria-label');
 
-    it('should disable button interaction while scrolling', () => {
-      deviceDetectorService.isMobileOrTablet.set(true);
-      isAtTop$.next(false);
-      fixture.detectChanges();
-
-      const arrow = fixture.debugElement.query(By.css('#scroll-top'));
-      arrow.triggerEventHandler('click');
-      fixture.detectChanges();
-
-      expect(arrow.attributes['disabled']).toBe('true');
+      expect(scrollUpButtonAriaLabel).toBe('Scroll to top');
     });
   });
 });

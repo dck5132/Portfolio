@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 
-// Third Party Libraries
+// External Libraries
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 

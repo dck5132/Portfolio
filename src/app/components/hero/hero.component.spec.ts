@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-// Third Party Libraries
+// External Libraries
 import { NgxTypewriterComponent } from '@omnedia/ngx-typewriter';
 
 // Components

@@ -1,14 +1,17 @@
 import { ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 // External Libraries
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { MatButtonModule } from '@angular/material/button';
+
 // Constants and Enums and Enums
 import { InternalPaths } from '../../shared/constants/routing.enums';
+
 // Services
 import { DeviceDetectorService } from '../../services/device-detector.service';
 import { ScrollService } from '../../services/scroll.service';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'portfolio-footer',
@@ -45,7 +48,7 @@ export class FooterComponent implements OnInit {
     this.scrollService.isAtTop$
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((isScrolledToTop) => {
-        if(!isScrolledToTop && this.isScrollUpArrowDisabled) {
+        if(!isScrolledToTop && this.isScrollUpArrowDisabled()) {
           this.isScrollUpArrowDisabled.set(false);
         }
         this.isAtTop.set(isScrolledToTop);
