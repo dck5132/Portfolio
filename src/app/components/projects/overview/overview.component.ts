@@ -31,10 +31,10 @@ export class OverviewComponent {
   private dialog = inject(MatDialog);
 
   // State - provided through input
-  config = input.required<overviewInformation>();
+  readonly config = input.required<overviewInformation>();
 
   // Displayed State
-  displayedOverview = computed(() => Object.assign(this.config(), {project: this.titleCasePipe.transform(this.config().project)}));
+  readonly displayedOverview = computed(() => Object.assign(this.config(), {project: this.titleCasePipe.transform(this.config().project)}));
 
   openDetailModal(): void {
     this.dialog.open(DetailComponent, {

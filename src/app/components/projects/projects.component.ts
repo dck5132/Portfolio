@@ -43,8 +43,8 @@ export class ProjectsComponent {
   readonly PROJECT_OVERVIEWS = ProjectOverviews;
 
   // State
-  currentFilter = signal(ProjectTypes.ALL);
-  filteredOverviewList = computed(() => this.currentFilter() === ProjectTypes.ALL
+  readonly currentFilter = signal(ProjectTypes.ALL);
+  readonly filteredOverviewList = computed(() => this.currentFilter() === ProjectTypes.ALL
     ? this.PROJECT_OVERVIEWS
     : this.PROJECT_OVERVIEWS.filter((project) => project.type === this.currentFilter())
   );

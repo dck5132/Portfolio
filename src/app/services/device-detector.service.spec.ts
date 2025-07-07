@@ -1,6 +1,10 @@
 import { TestBed } from '@angular/core/testing';
+
+// External Libraries
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { BehaviorSubject } from 'rxjs';
+
+// Services
 import { DeviceDetectorService } from './device-detector.service';
 
 describe('DeviceDetectorService', () => {

@@ -9,10 +9,10 @@ import { SkillsAndExperience } from '../interfaces/skills.interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillComponent {
-  config = input.required<SkillsAndExperience>();
+  readonly config = input.required<SkillsAndExperience>();
 
-  label = computed(() => `${this.config().name}: ${this.config().proficiency } years`);
-  ariaLabel = computed(() => `Proficiency in ${this.config().name}`);
-  ariaValueNow = computed(() => this.config().proficiency * 10);
-
+  // State
+  readonly label = computed(() => `${this.config().name}: ${this.config().proficiency } years`);
+  readonly ariaLabel = computed(() => `Proficiency in ${this.config().name}`);
+  readonly ariaValueNow = computed(() => this.config().proficiency * 10);
 }

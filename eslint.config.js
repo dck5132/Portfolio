@@ -6,6 +6,12 @@ const angular = require("angular-eslint");
 module.exports = tseslint.config(
   {
     files: ["**/*.ts"],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: true
+      }
+    },
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommended,
@@ -30,6 +36,16 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "@angular-eslint/no-output-native": "error",
+      "@angular-eslint/component-class-suffix": "error",
+      "@angular-eslint/component-max-inline-declarations": "error",
+      "@angular-eslint/no-developer-preview": "error",
+      "@angular-eslint/no-experimental": "error",
+      "@angular-eslint/no-lifecycle-call": "error",
+      "@angular-eslint/sort-lifecycle-methods": "error",
+      "@angular-eslint/directive-class-suffix": "error",
+      "@angular-eslint/prefer-signals": "error",
+      "@angular-eslint/use-injectable-provided-in": "error",
     },
   },
   {
@@ -38,6 +54,7 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
     ],
-    rules: {},
+    rules: {
+    },
   }
 );

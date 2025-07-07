@@ -12,5 +12,5 @@ import { sectionTitleConfig } from './interfaces/section-title.interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionTitleComponent {
-  config = input.required<sectionTitleConfig>();
+  readonly config = input.required<sectionTitleConfig>();
 }

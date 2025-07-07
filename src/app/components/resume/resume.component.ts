@@ -32,7 +32,7 @@ export class ResumeComponent {
   };
 
   // Displayed Content
-  displayedResumeContent = computed(() => {
+  readonly displayedResumeContent = computed(() => {
     const ResumeFirstHalf = ResumeContent.filter((section) => {
       const title = (section.title ?? '' )as ResumeTitle;
       return ResumeLeftSideTitles.includes(title) || section.location === Project.AMSTED_DIGITAL;

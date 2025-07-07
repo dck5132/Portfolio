@@ -42,7 +42,7 @@ export class AboutComponent {
   readonly DETAIL_ICON = faChevronRight;
   readonly ABOUT_INFORMATION_TYPE = InformationType;
   // State
-  displayedInformation = computed(() => {
+  readonly displayedInformation = computed(() => {
     const initialInformation = AboutDetails;
     const halfLength = Math.ceil(initialInformation.length / 2);
     const firstHalfOfInformation = initialInformation.slice(0, halfLength);

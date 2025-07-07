@@ -26,7 +26,7 @@ export class DetailComponent {
   protected readonly CLOSE = 'Close';
 
   // State
-  displayedProject = computed(() => {
+  readonly displayedProject = computed(() => {
     const TechByProject = primaryTechnologies.find((technologyList) => technologyList.project === this.data.id)?.tech;
     const projectDetails = {
       position: `${this.data.role} @ ${this.data.id}`, 

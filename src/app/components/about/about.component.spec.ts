@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 // Components
 import { AboutComponent } from './about.component';
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
+
 // Constants and Enums
 import { AboutDetails } from './constants/about.constants';
 import { InformationType } from '../../shared/constants/information.enums';

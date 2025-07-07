@@ -42,7 +42,7 @@ export class ScrollService {
     SHARE: { bufferSize: 1, refCount: false }
   };
   // Application State
-  activeSection = signal<string>(InternalPaths.HERO);
+  readonly activeSection = signal<string>(InternalPaths.HERO);
 
   private readonly scrollState$ = fromEvent<Event>(window, 'scroll', this.SCROLL_CONFIG.OPTIONS).pipe(
     throttleTime(this.SCROLL_CONFIG.THROTTLE_MS, undefined, { trailing: true }),

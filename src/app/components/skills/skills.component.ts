@@ -34,9 +34,9 @@ export class SkillsComponent {
     subtitle: this.SKILL_SUMMARY
   };
   // State
-  protected isMobile = computed(() => this.deviceDetectorService.isMobileOrTablet());
+  protected readonly isMobile = computed(() => this.deviceDetectorService.isMobileOrTablet());
   // Used for Mobile
-  protected orderedSkills = computed(() => {
+  protected readonly orderedSkills = computed(() => {
     // Adds values needed for progress bars
     return CurrentSkills.map((skill) => ({
         ...skill,
@@ -47,7 +47,7 @@ export class SkillsComponent {
   });
 
   // Used for Desktop (Split between 2 arrays)
-  protected orderedSkillsSplit = computed(() => {
+  protected readonly orderedSkillsSplit = computed(() => {
     const skillColumns: SkillsAndExperience[][] = [[], []];
     this.orderedSkills().forEach((skill, index) => {
       skillColumns[index % 2].push(skill);

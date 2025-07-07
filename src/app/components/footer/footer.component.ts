@@ -31,9 +31,9 @@ export class FooterComponent implements OnInit {
   // Display Constants
   protected readonly SCROLL_TOP_ICON = faArrowUp;
   // State
-  protected isAtTop = signal(false);
-  protected isScrollUpArrowDisplayed = computed(() => this.deviceDetectorService.isMobileOrTablet() && !this.isAtTop());
-  protected isScrollUpArrowDisabled = signal(false);
+  protected readonly isAtTop = signal(false);
+  protected readonly isScrollUpArrowDisplayed = computed(() => this.deviceDetectorService.isMobileOrTablet() && !this.isAtTop());
+  protected readonly isScrollUpArrowDisabled = signal(false);
 
   ngOnInit(): void {
     this.initializeScrollDetection();

@@ -18,7 +18,7 @@ export class DeviceDetectorService  {
   protected readonly TABLET_BREAKPOINTS = [Breakpoints.TabletPortrait, Breakpoints.TabletLandscape];
   protected readonly IS_MOBILE_OR_TABLET = [...this.MOBILE_BREAKPOINTS, ...this.TABLET_BREAKPOINTS];
   // Application State
-  isMobileOrTablet = signal(false);
+  readonly isMobileOrTablet = signal(false);
 
   constructor() {
     this.observeBreakpoints();
