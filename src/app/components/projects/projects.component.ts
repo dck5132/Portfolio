@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, signal, ViewEncapsulation
 import { TitleCasePipe } from '@angular/common';
 
 // External Libraries
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 
 // Interfaces
@@ -21,7 +20,6 @@ import { SectionTitleComponent } from "../../shared/components/section-title/sec
   selector: 'portfolio-projects',
   imports: [
     TitleCasePipe,
-    MatDialogModule,
     MatTabsModule,
     OverviewComponent,
     SectionTitleComponent
