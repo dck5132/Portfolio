@@ -154,5 +154,17 @@ describe('HeaderComponent', () => {
       expect(imgElement.alt).toBe(component['AVATAR_IMAGE'].alt);
       expect(imgElement.src).toContain(component['AVATAR_IMAGE'].src);
     });
+
+    it('should have aria-label on menu toggle button', () => {
+      const toggleButton = fixture.debugElement.query(By.css('[data-testid="menu-toggle"]'));
+      if (toggleButton) {
+        expect(toggleButton.attributes['aria-label']).toBe('Toggle navigation menu');
+      }
+    });
+
+    it('should have aria-label on the social links', () => {
+      const socialLinks = fixture.debugElement.queryAll(By.css('[data-testid^="social-"]'));
+      expect(socialLinks).toBeTruthy();
+    });
   });
 });

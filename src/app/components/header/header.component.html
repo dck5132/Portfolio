@@ -41,7 +41,8 @@
           [href]="route.path"
           target="_blank"
           rel="noreferrer"
-          [attr.aria-labelledby]="route.id"
+          [attr.aria-label]="route.id"
+          [attr.data-testid]="`social-${route.id}`"
         >
         @if (route.icon) {
           <fa-icon

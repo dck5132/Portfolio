@@ -1,6 +1,6 @@
 .menu-toggle {
   color: var(--contrast-color);
-  background-color: var(--accent-color);
+  background-color: var(--accent-color-light);
   font-size: 22px;
   display: flex;
   align-items: center;
@@ -74,7 +74,7 @@
       transition: 0.3s;
 
       &:hover {
-        color: var(--accent-color);
+        color: var(--accent-color-light);
       }
     }
   }
@@ -113,7 +113,7 @@
       color: var(--nav-hover-color);
 
       .navicon {
-        color: var(--accent-color);
+        color: var(--accent-color-light);
       }
     }
   }

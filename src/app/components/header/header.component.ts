@@ -8,11 +8,8 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 import { MatButtonModule } from '@angular/material/button';
 
-// Constants
-import { 
-  ExternalRoutes, 
-  InternalRoutes 
-} from '../../shared/constants/routing.constants';
+// Constants and Enums
+import { ExternalRoutes, InternalRoutes } from '../../shared/constants/routing.constants';
 import { Name } from '../../shared/constants/information.constants';
 import { ImagePathAndAltTextToImageConfig } from '../../shared/constants/image.constants';
 import { InternalPaths } from '../../shared/constants/routing.enums';

@@ -4,13 +4,13 @@
   overflow-x: hidden;
   @include mat.tabs-overrides((
     divider-color: var(--background-color),
-    active-label-text-color: var(--accent-color),
-    active-hover-label-text-color: var(--accent-color),
-    active-focus-label-text-color: var(--accent-color),
-    inactive-hover-label-text-color: var(--accent-color),
-    active-indicator-color: var(--accent-color),
-    active-hover-indicator-color: var(--accent-color),
-    active-focus-indicator-color: var(--accent-color)
+    active-label-text-color: var(--accent-color-dark),
+    active-hover-label-text-color: var(--accent-color-dark),
+    active-focus-label-text-color: var(--accent-color-dark),
+    inactive-hover-label-text-color: var(--accent-color-dark),
+    active-indicator-color: var(--accent-color-dark),
+    active-hover-indicator-color: var(--accent-color-dark),
+    active-focus-indicator-color: var(--accent-color-dark)
   ));
 }
 // Disable horizontal overflow for Angular Material Tab Active Content
