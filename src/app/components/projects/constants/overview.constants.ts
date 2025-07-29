@@ -1,11 +1,13 @@
 // Interfaces
+
 import { overviewInformation } from "../interfaces/overview.interfaces";
 // Constants and Enums
+
 import { ProjectTypes } from "./projects.enums";
 import { JobTitle, Project } from "../../../shared/constants/information.enums";
+
 // Constants and Enums
 import { ImagePathAndAltTextToImageConfig } from "../../../shared/constants/image.constants";
-
 
 export const ProjectOverviews: overviewInformation[] = [
     {

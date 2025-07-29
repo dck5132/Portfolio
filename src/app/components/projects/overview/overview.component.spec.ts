@@ -29,8 +29,8 @@ describe('OverviewComponent', () => {
     type: ProjectTypes.PROFESSIONAL,
     description: 'Test description',
     avatar: {
-      src: ImagePath.Avatar,
-      alt: ImageAlt.Avatar
+      src: ImagePath.Profile,
+      alt: ImageAlt.Profile
     },
     openButtonLabel: 'View Details',
     subtitle: 'Test Role',

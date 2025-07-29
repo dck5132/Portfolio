@@ -38,7 +38,7 @@ export class AboutComponent {
   };
   readonly JOB_TITLES = Roles.join(' & ');
   readonly JOB_TITLE_SUMMARY = `Front-End Web Developer with experience developing, deploying, and maintaining enterprise-grade user-facing applications. Passionate about building responsive, accessible, and scalable web experiences, with a continuous drive to deepen technical expertise and deliver impactful user-centric solutions.`;
-  readonly IMAGE = ImagePathAndAltTextToImageConfig.Avatar;
+  readonly IMAGE = ImagePathAndAltTextToImageConfig.Profile;
   readonly DETAIL_ICON = faChevronRight;
   readonly ABOUT_INFORMATION_TYPE = InformationType;
   // State

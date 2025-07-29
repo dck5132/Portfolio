@@ -44,7 +44,7 @@ export class HeaderComponent {
     CLOSE: faClose
   };
   protected readonly NAME = Name;
-  protected readonly AVATAR_IMAGE = ImagePathAndAltTextToImageConfig.Avatar;
+  protected readonly AVATAR_IMAGE = ImagePathAndAltTextToImageConfig.Profile;
   
   // Menu State
   protected readonly isMenuToggleDisabled = signal(false);
