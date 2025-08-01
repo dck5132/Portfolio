@@ -10,8 +10,8 @@ import { FooterComponent } from "./components/footer/footer.component";
   imports: [
     RouterOutlet,
     HeaderComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

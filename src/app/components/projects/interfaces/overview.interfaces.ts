@@ -1,6 +1,7 @@
 // Interfaces
 import { ImageInformation } from "../../../shared/interfaces/information.interfaces";
 import { Links } from "../../../shared/interfaces/routing.interfaces";
+
 // Constants and Enums
 import { ProjectTypes } from "../constants/projects.enums";
 

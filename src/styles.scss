@@ -37,7 +37,12 @@
   --surface-color: #ffffff;
 }
 
-.dark-background {
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+.nav-background {
   --background-color: #040b14;
   --default-color: #ffffff;
   --heading-color: #ffffff;
@@ -45,9 +50,21 @@
   --contrast-color: #ffffff;
 }
 
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
+.dark-mode {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+
+  .light-background {
+    --background-color: #0f2646;
+    --surface-color: #171055;
+  }
+
+  a {
+    color: var(--mat-sys-primary);
+  }
 }
 
 /*--------------------------------------------------------------
@@ -62,6 +79,29 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+// Handles the menu toggle/scroll to top and theme change button styling
+  .right-button {
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    right: 15px;
+    z-index: 5;
+    transition: background-color 0.3s;
+    border: inherit;
+
+    &.top {
+      top: 15px;
+    }
+    &.bottom {
+      bottom:15px;
+    }
+  }
 }
 
 a {

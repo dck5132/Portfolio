@@ -1,8 +1,7 @@
 // Interfaces
-
 import { overviewInformation } from "../interfaces/overview.interfaces";
-// Constants and Enums
 
+// Constants and Enums
 import { ProjectTypes } from "./projects.enums";
 import { JobTitle, Project } from "../../../shared/constants/information.enums";
 

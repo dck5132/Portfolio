@@ -18,6 +18,10 @@ import { InternalPaths } from '../../shared/constants/routing.enums';
 import { DeviceDetectorService } from '../../services/device-detector.service';
 import { ScrollService } from '../../services/scroll.service';
 
+// Components
+import { ThemeToggleComponent } from "../../shared/components/theme-toggle/theme-toggle.component";
+
+
 @Component({
   selector: 'portfolio-header',
   imports: [
@@ -26,7 +30,8 @@ import { ScrollService } from '../../services/scroll.service';
     TitleCasePipe,
     FaIconComponent,
     MatButtonModule,
-  ],
+    ThemeToggleComponent,
+],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

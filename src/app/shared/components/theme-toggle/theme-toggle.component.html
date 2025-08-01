@@ -1,0 +1,12 @@
+<button
+    mat-mini-fab
+    [matTooltip]="themeToggleTooltip()"
+    matTooltipClass="tooltip"
+    class="right-button top"
+    [class.theme-toggle-mobile]="isMobile()"
+    (click)="toggleTheme()"
+    [attr.aria-label]="themeToggleAriaLabel()"
+    data-testid="theme-toggle"
+>
+    <fa-icon [icon]="themeToggleIcon()" class="fa-fw" />
+</button>

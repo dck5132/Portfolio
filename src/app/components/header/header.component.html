@@ -3,7 +3,7 @@
     mat-mini-fab
     type="button"
     [disabled]="isMenuToggleDisabled()"
-    class="menu-toggle"
+    class="right-button"
     (click)="toggleMobileMenu()"
     aria-label="Toggle navigation menu"
     data-testid="menu-toggle"
@@ -11,10 +11,11 @@
     <fa-icon class="fa-fw" [icon]="mobileMenuToggleIcon()"/>
   </button>
 }
+<portfolio-theme-toggle />
 @if (isMenuDisplayed()) {
   <header
     id="header"
-    class="header dark-background d-flex flex-column"
+    class="header nav-background d-flex flex-column"
   >
 
     <img
@@ -44,11 +45,11 @@
           [attr.aria-label]="route.id"
           [attr.data-testid]="`social-${route.id}`"
         >
-        @if (route.icon) {
-          <fa-icon
-            [icon]="route.icon"
-          />
-        }
+          @if (route.icon) {
+            <fa-icon
+              [icon]="route.icon"
+            />
+          }
         </a>
       }
     </div>

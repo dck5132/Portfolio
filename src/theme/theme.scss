@@ -1,14 +1,11 @@
 @use '@angular/material' as mat;
 
-$angular-material-theming-css-vars-theme: mat.define-theme(
-  (
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-      use-system-variables: true,
+html {
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$azure-palette,
+    use-system-variables: true,
     system-variables-prefix: sys,
-    ),
     typography: (
       plain-family: var(--default-font),
       brand-family: var(--heading-font),
@@ -21,18 +18,9 @@ $angular-material-theming-css-vars-theme: mat.define-theme(
     density: (
       scale: 0,
     ),
-  )
-);
+  ))
+}
 
-$light-theme: mat.define-theme();
-$dark-theme: mat.define-theme((
-  color: (
-    theme-type: dark
-  )
-));
-
-:root {
-  @include mat.all-component-themes($angular-material-theming-css-vars-theme);
-  @include mat.system-level-colors($angular-material-theming-css-vars-theme);
-  @include mat.system-level-typography($angular-material-theming-css-vars-theme);
+body.dark-mode {
+  color-scheme: dark;
 }

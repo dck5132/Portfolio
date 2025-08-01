@@ -1,5 +1,5 @@
 export enum ImagePath {
-    Angular = 'images/logos/icon_angular.svg',
+    Angular = 'images/logos/angular_gradient.svg',
     JavaScript = 'images/logos/javascript_logo.svg',
     HeroBackground = 'images/personal/Portfolio_BG.png',
     Profile = 'images/personal/Profile_Square.jpg',

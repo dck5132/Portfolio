@@ -24,22 +24,3 @@
     margin-left: 300px;
   }
 }
-
-.scroll-top {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  background-color: var(--accent-color-dark);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-  cursor: pointer;
-  z-index: 5;
-
-  fa-icon {
-    font-size: 24px;
-    color: var(--contrast-color);
-    line-height: 0;
-  }
-}
