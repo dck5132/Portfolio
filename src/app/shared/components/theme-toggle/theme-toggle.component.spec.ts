@@ -29,6 +29,19 @@ describe('ThemeToggleComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should detect the user theme preference and update the theme based on the preference', () => {
+    component.setInitialTheme();
+    fixture.detectChanges();
+
+    const BodyElement = document.body.classList;
+    if (component.isDarkMode()) {
+      expect(BodyElement).toContain(component.DARK_MODE_CLASS);
+    }
+    else {
+      expect (BodyElement).not.toContain(component.DARK_MODE_CLASS);
+    }
+  });
+
   it('should have a toggle button with aria-label', () => {
     const button = fixture.debugElement.query(By.css('button'));
     expect(button).toBeTruthy();
