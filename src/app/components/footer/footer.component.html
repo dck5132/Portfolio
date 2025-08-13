@@ -21,11 +21,13 @@
     <a
       mat-mini-fab
       tabIndex="0"
+      role="link"
       id="scroll-top"
       class="right-button bottom"
       routerLink=""
       (click)="scrollToTop()"
       (keydown.enter)="scrollToTop()"
+      (keydown.space)="scrollToTop()"
       [disabled]="isScrollUpArrowDisabled()"
       aria-label="Scroll to top"
     >

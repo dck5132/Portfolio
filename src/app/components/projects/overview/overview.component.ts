@@ -43,7 +43,7 @@ export class OverviewComponent {
         role: this.displayedOverview().subtitle
       },
       width: '600px',
-      autoFocus: false,
+      autoFocus: 'true',
       restoreFocus: true
     });
   }

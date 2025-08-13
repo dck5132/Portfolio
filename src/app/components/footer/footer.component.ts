@@ -40,7 +40,7 @@ export class FooterComponent implements OnInit {
   }
 
   protected scrollToTop(): void {
-    this.scrollService.scrollToSection(InternalPaths.HERO);
+    this.scrollService.scrollToSection(InternalPaths.PAGE_TOP);
     this.isScrollUpArrowDisabled.set(true);
   }
 

@@ -56,7 +56,6 @@ describe('FooterComponent', () => {
   describe('Scroll Up Arrow Button Display', () => {
     it('should hide arrow button on desktop', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
-      deviceDetectorService.isMobileOrTablet.set(false);
 
       const scrollUpButton = await loader.getHarnessOrNull(MatButtonHarness.with({ selector: '#scroll-top' }));
       expect(scrollUpButton).toBeNull();
@@ -82,7 +81,7 @@ describe('FooterComponent', () => {
   });
 
   describe('Scroll Up Arrow Button Functionality', () => {
-    it('should scroll to hero section when arrow button clicked', async () => {
+    it('should scroll to section with id of page-top when arrow button clicked', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);
       isAtTop$.next(false);
@@ -90,21 +89,22 @@ describe('FooterComponent', () => {
       const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
       await scrollUpButton.click();
 
-      expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
+      expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.PAGE_TOP);
     });
+    const KeyboardKeys = ['enter', 'space'];
+    KeyboardKeys.forEach((keyType) => {
+      it(`should scroll to section with id of page-top when arrow button is focused to and ${keyType} key is hit`, async () => {
+        loader = TestbedHarnessEnvironment.loader(fixture);
+        deviceDetectorService.isMobileOrTablet.set(true);
+        isAtTop$.next(false);
 
-    it('should scroll to hero section when arrow button is focused to and enter key is hit', async () => {
-      loader = TestbedHarnessEnvironment.loader(fixture);
-      deviceDetectorService.isMobileOrTablet.set(true);
-      isAtTop$.next(false);
+        const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
+        await scrollUpButton.focus();
+        (await scrollUpButton.host()).dispatchEvent('keydown', {key: keyType});
 
-      const scrollUpButton = await loader.getHarness(MatButtonHarness.with({ selector: '#scroll-top' }));
-      await scrollUpButton.focus();
-      (await scrollUpButton.host()).dispatchEvent('keydown', {key: 'enter'});
-
-      expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.HERO);
+        expect(scrollService.scrollToSection).toHaveBeenCalledWith(InternalPaths.PAGE_TOP);
+      });
     });
-
     it('should disable arrow button interaction while scrolling', async () => {
       loader = TestbedHarnessEnvironment.loader(fixture);
       deviceDetectorService.isMobileOrTablet.set(true);

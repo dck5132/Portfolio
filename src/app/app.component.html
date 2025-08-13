@@ -1,5 +1,8 @@
 <portfolio-header />
 <main class="main">
+  @if (isMobile()) {
+    <section class="p-0" [id]="PAGE_TOP_ID"></section>
+  }
   <router-outlet />
 </main>
 <portfolio-footer />
